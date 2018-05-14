@@ -41,7 +41,7 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-        it('should contain a name defined which is not empty', function() {
+        it('should contain a name which is defined and not empty', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
@@ -57,7 +57,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('should be hidden by default', function() {
-
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
          /* TODO: Write a test that ensures the menu changes
