@@ -31,7 +31,7 @@ $(function () {
          * and that the URL is not empty.
          */
         it('should contain a URL defined which is not empty', function () {
-            allFeeds.forEach(function (feed) {
+            allFeeds.forEach(function (feed) {  // Loops through each feed urls to ensure that they're defined and not empty
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
             });
@@ -42,7 +42,7 @@ $(function () {
          * and that the name is not empty.
          */
         it('should contain a name which is defined and not empty', function () {
-            allFeeds.forEach(function (feed) {
+            allFeeds.forEach(function (feed) {  // Loops through each feed name to ensure that they're defined and not empty
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
             })
@@ -86,7 +86,7 @@ $(function () {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        beforeEach(function (done) {
+        beforeEach(function (done) {  // "This spec will not start until the done function is called in the call to beforeEach above. And this spec will not complete until its done is called." (from Jasmine Doc)
             loadFeed(0, done);
         });
 
