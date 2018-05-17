@@ -4,6 +4,8 @@
 
 A feed reader testing app using Jasmine for the Udacity/Google FEND Nanodegree Program.
 
+![Feed Reader Testing App screenshot](https://github.com/DownTheMatrix/Feed-Reader-Testing-App/blob/master/Screenshot.png?raw=true)
+
 ### Documentation
 
 + [Jasmine 2.1](https://jasmine.github.io/2.1/introduction.html)
