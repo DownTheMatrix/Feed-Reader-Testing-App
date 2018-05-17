@@ -69,12 +69,12 @@ $(function () {
          */
         it('should change visibility when the menu icon is clicked', function () {
             const menuIcon = $('a.menu-icon-link'); // Select menu-icon
-            const body = $('body'); 
+            const body = $('body');
 
             menuIcon.trigger('click'); // Listens for a click event...
             expect(body.hasClass('menu-hidden')).toBe(false); // and hides the menu
             menuIcon.trigger('click'); // Once clicked again...
-            expect(body.hasClass('menu-hidden')).toBe(true); // it displays it again
+            expect(body.hasClass('menu-hidden')).toBe(true); // it displays the menu
         });
     });
 
@@ -86,11 +86,11 @@ $(function () {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        beforeEach(function(done) {
+        beforeEach(function (done) {
             loadFeed(0, done);
         });
 
-        it('there should be at least a single .entry element within the .feed container', function() {
+        it('there should be at least a single .entry element within the .feed container', function () {
             const container = $('.feed'); // Selects the feeds container
 
 
