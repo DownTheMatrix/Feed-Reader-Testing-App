@@ -116,8 +116,19 @@ $(function () {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it('should change the content when a new feed is loaded', function() {
+        let oldFeedContent; // Makes the variable accessible from within the beforeEach() funtion
 
+        beforeEach(function (done) {
+            loadFeed(0, done);
+            oldFeedContent = $('.feed').html(); // Selects the original (empty) feed content
+            loadFeed(1, done);
+        });
+
+        it('when a new feed is loaded, the content should change', function (done) {
+            const newFeedContent = document.querySelector('.feed'); // Selects the new feed content
+
+            expect(oldFeedContent).not.toBe(newFeedContent);
+            done();
         });
     });
 }());
