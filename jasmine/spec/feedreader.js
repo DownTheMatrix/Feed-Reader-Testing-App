@@ -31,7 +31,7 @@ $(function () {
          * and that the URL is not empty.
          */
         it('should contain a URL defined which is not empty', function () {
-            allFeeds.forEach(function (feed) {  // Loops through each feed urls to ensure that they're defined and not empty
+            allFeeds.forEach(function (feed) { // Loops through each feed urls to ensure that they're defined and not empty
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
             });
@@ -42,7 +42,7 @@ $(function () {
          * and that the name is not empty.
          */
         it('should contain a name which is defined and not empty', function () {
-            allFeeds.forEach(function (feed) {  // Loops through each feed name to ensure that they're defined and not empty
+            allFeeds.forEach(function (feed) { // Loops through each feed name to ensure that they're defined and not empty
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
             })
@@ -86,13 +86,13 @@ $(function () {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        beforeEach(function (done) {  // "This spec will not start until the done function is called in the call to beforeEach above. And this spec will not complete until its done is called." (from Jasmine Doc)
+        beforeEach(function (done) { // "This spec will not start until the done function is called in the call to beforeEach above. And this spec will not complete until its done is called." (from Jasmine Doc)
             loadFeed(0, done);
         });
 
         it('there should be at least a single .entry element within the .feed container', function () {
             const feedContainer = $('.feed'); // Selects the feeds container
-            const entry = $('.entry');  // Selects the entry
+            const entry = $('.entry'); // Selects the entry
 
             expect(feedContainer.length).toBeGreaterThan(0);
             expect(entry.length).toBeGreaterThan(0);
@@ -101,20 +101,23 @@ $(function () {
         // Expects the entries to be valid URLs using regular expression
         it('entries are valid URLs', function (done) {
             const feedContainer = $('.feed'); // Selects the feeds container
-            const entryLinks = document.querySelectorAll('.entry-link');  // Selects the entries links
+            const entryLinks = document.querySelectorAll('.entry-link'); // Selects the entries links
 
             entryLinks.forEach(function (entry) {
-                expect(entry.href).toMatch(/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i);  // Regex taken from: (https://stackoverflow.com/questions/161738/what-is-the-best-regular-expression-to-check-if-a-string-is-a-valid-url)
+                expect(entry.href).toMatch(/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i); // Regex taken from: (https://stackoverflow.com/questions/161738/what-is-the-best-regular-expression-to-check-if-a-string-is-a-valid-url)
                 done();
             });
         });
     });
 
-
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function () {
+        /* TODO: Write a test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         * Remember, loadFeed() is asynchronous.
+         */
+        it('should change the content when a new feed is loaded', function() {
 
-    /* TODO: Write a test that ensures when a new feed is loaded
-     * by the loadFeed function that the content actually changes.
-     * Remember, loadFeed() is asynchronous.
-     */
+        });
+    });
 }());
