@@ -86,13 +86,12 @@ $(function () {
     /* 4th Suite: New Feed Selection */
     describe('New Feed Selection', function () {
 
-        let oldFeedContent;  // Makes the variable accessible from within the beforeEach() funtion
-        let newFeedContent;  // Makes the variable accessible from within the beforeEach() funtion
+        let oldFeedContent; // Makes the variable accessible from within the beforeEach() funtion
+        let newFeedContent; // Makes the variable accessible from within the beforeEach() funtion
 
         beforeEach(function (done) {
             loadFeed(0, function () {
                 oldFeedContent = $('.feed').html(); // Selects the original (empty) feed content
-                done();
                 
                 loadFeed(1, function () {
                     newFeedContent = $('.feed').html(); // Selects the new feed content
@@ -103,8 +102,8 @@ $(function () {
 
         /* Makes sure that the content changes once a new feed has been loaded */
         it('when a new feed is loaded, the content should change', function (done) {
-        
-            expect(oldFeedContent).not.toBe(newFeedContent); // Ensures that the new content is different from the old one (= sth. was added and the content changed)
+
+            expect(newFeedContent).not.toBe(oldFeedContent); // Ensures that the new content is different from the old one (= sth. was added and the content changed)
             done();
         });
     });
