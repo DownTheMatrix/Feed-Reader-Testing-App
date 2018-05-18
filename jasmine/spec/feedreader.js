@@ -10,7 +10,7 @@ $(function () {
 
         /* Loops through each feed urls to ensure that they're defined and not empty */
         it('should contain a URL defined which is not empty', function () {
-            allFeeds.forEach(function (feed) { 
+            allFeeds.forEach(function (feed) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
             });
@@ -18,7 +18,7 @@ $(function () {
 
         /* Loops through each feed name to ensure that they're defined and not empty */
         it('should contain a name which is defined and not empty', function () {
-            allFeeds.forEach(function (feed) { 
+            allFeeds.forEach(function (feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
             })
@@ -27,10 +27,10 @@ $(function () {
 
     /* 2nd Suite: The Menu  */
     describe('The menu', function () {
-        
+
         /* Ensures that the menu element is hidden by default */
         it('should be hidden by default', function () {
-            const body = $('body'); 
+            const body = $('body');
 
             expect(body.hasClass('menu-hidden')).toBe(true);
         });
@@ -51,22 +51,29 @@ $(function () {
     describe('Initial Entries', function () {
 
         /* Jasmine built-in function for dealing with asynchronous code  */
-        beforeEach(function (done) { 
+        beforeEach(function (done) {
             loadFeed(0, done);
         });
 
-        /* This tests that once the loadFeed function has been called, there's at least a single .entry element within the .feed container */
+        /* This tests ensures that once the loadFeed function has been called, there's at least a single .entry element within the .feed container */
         it('there should be at least a single .entry element within the .feed container', function () {
             const feedContainer = $('.feed'); // Selects the feeds container
             const entry = $('.entry'); // Selects the entry
+            const entriesWithinContainer = $('.feed .entry'); // Selects the feed container (parent) and the entry element (child)
 
-            expect(feedContainer.length).toBeGreaterThan(0);
-            expect(entry.length).toBeGreaterThan(0);
+            expect(entriesWithinContainer.length).toBeGreaterThan(0);
+            expect(entry, feedContainer).toBeDefined();
+
+            /* if ( $(feedContainer).has(entry).length ) {
+                console.log("entry present within container");
+            } else {
+                console.log("entry not present within container");
+            } */
         });
 
         /* Expects the entries to be valid URLs using regular expression */
-        it('entries are valid URLs', function (done) { 
-            const feedContainer = $('.feed');  // Selects the feeds container
+        it('entries are valid URLs', function (done) {
+            const feedContainer = $('.feed'); // Selects the feeds container
             const entryLinks = document.querySelectorAll('.entry-link'); // Selects the entries links
 
             entryLinks.forEach(function (entry) {
@@ -76,9 +83,9 @@ $(function () {
         });
     });
 
-   /* 4th Suite: New Feed Selection */
+    /* 4th Suite: New Feed Selection */
     describe('New Feed Selection', function () {
-       
+
         let oldFeedContent; // Makes the variable accessible from within the beforeEach() funtion
 
         beforeEach(function (done) {
@@ -91,7 +98,7 @@ $(function () {
         it('when a new feed is loaded, the content should change', function (done) {
             const newFeedContent = document.querySelector('.feed'); // Selects the new feed content
 
-            expect(oldFeedContent).not.toBe(newFeedContent);  // Ensures that the new content is different from the old one (= sth. was added and the content changed)
+            expect(oldFeedContent).not.toBe(newFeedContent); // Ensures that the new content is different from the old one (= sth. was added and the content changed)
             done();
         });
     });
