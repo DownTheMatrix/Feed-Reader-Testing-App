@@ -103,8 +103,7 @@ $(function () {
 
         /* Makes sure that the content changes once a new feed has been loaded */
         it('when a new feed is loaded, the content should change', function (done) {
-            newFeedContent = document.querySelector('.feed'); // Selects the new feed content
-
+        
             expect(oldFeedContent).not.toBe(newFeedContent); // Ensures that the new content is different from the old one (= sth. was added and the content changed)
             done();
         });
