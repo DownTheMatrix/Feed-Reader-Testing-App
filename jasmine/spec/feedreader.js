@@ -42,6 +42,7 @@ $(function () {
 
             menuIcon.trigger('click'); // Listens for a click event...
             expect(body.hasClass('menu-hidden')).toBe(false); // and displays the menu
+
             menuIcon.trigger('click'); // Once clicked again...
             expect(body.hasClass('menu-hidden')).toBe(true); // it hides the menu
         });
@@ -92,7 +93,7 @@ $(function () {
         beforeEach(function (done) {
             loadFeed(0, function () {
                 oldFeedContent = $('.feed').html(); // Selects the original (empty) feed content
-                
+
                 loadFeed(1, function () {
                     newFeedContent = $('.feed').html(); // Selects the new feed content
                     done();
@@ -102,7 +103,6 @@ $(function () {
 
         /* Makes sure that the content changes once a new feed has been loaded */
         it('when a new feed is loaded, the content should change', function (done) {
-
             expect(newFeedContent).not.toBe(oldFeedContent); // Ensures that the new content is different from the old one (= sth. was added and the content changed)
             done();
         });
