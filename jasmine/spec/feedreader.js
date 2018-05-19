@@ -102,9 +102,8 @@ $(function () {
         });
 
         /* Makes sure that the content changes once a new feed has been loaded */
-        it('when a new feed is loaded, the content should change', function (done) {
+        it('when a new feed is loaded, the content should change', function () {
             expect(newFeedContent).not.toBe(oldFeedContent); // Ensures that the new content is different from the old one (= sth. was added and the content changed)
-            done();
         });
     });
 }());
